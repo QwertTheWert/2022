@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tables</title>
+</head>
+<style>
+	table, tr, th, td {
+		border: 1px solid black;
+		border-collapse: collapse;
+		padding: 5px;
+	}
+	th.name {
+		width: 200px;
+	}
+	th.number {
+		width: 30px;
+	}
+	</style>
+<body>
+	<header>
+		<h1>Baseball Standings</h1>
+	</header>
+
+	<section>
+		<table>
+			<thead>
+				<tr>
+					<th class="name">Team</th>
+					<th class="number">W</th>
+					<th class="number">L</th>
+					<th class="number">GB</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>San Fransico Giants</td>
+					<td>62</td>
+					<td>38</td>
+					<td>--</td>
+				</tr>
+				<tr>
+					<td>Los Angles Dodgers</td>
+					<td>54</td>
+					<td>46</td>
+					<td>8.0</td>
+				</tr>
+				<tr>
+					<td>Colorado Rookies</td>
+					<td>54</td>
+					<td>46</td>
+					<td>8.0</td>
+				</tr>
+				<tr>
+					<td>Arizona Diamondbacks</td>
+					<td>43</td>
+					<td>58</td>
+					<td>19.5</td>
+				</tr>
+				<tr>
+					<td>San Diego Padres</td>
+					<td>39</td>
+					<td>62</td>
+					<td>23.5</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+</body>
+</html>

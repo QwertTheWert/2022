@@ -1,0 +1,184 @@
+{% extends 'layout.html' %}
+
+
+{% block main %}
+
+<img src="{{ url_for('static', filename='seoni.png') }}" id="portrait" style="margin-bottom:50%">
+<table id="outer-table">
+	<tr>
+		<td id="table-a">Ancestry</td>
+		<td id="table-b">Human (Skilled)</td>
+	</tr>
+
+	<tr>		
+		<td id="table-a">Background</td>
+		<td id="table-b">Nomad</td>
+	</tr>
+	<tr>
+		<td id="table-a">Class</td>
+		<td id="table-b">Sorcerer (Level 5)</td>
+	</tr>
+	<tr>
+		<td id="table-a">Speed</td>
+		<td id="table-b">25 feet</td>
+	</tr>
+	<tr>
+		<td id="table-a">Size</td>
+		<td id="table-b">Small</td>
+	</tr>
+	<tr>
+		<td id="table-a">Alignment</td>
+		<td id="table-b">Lawful Neutral</td>
+	</tr>
+	<tr>
+		<td id="table-a">Language</td>
+		<td id="table-b">Common, Draconic, Varisian</td>
+	</tr>
+</table>
+
+<table id="outer-table" style="padding-bottom: 10px;">
+	<tr>
+		<td id="table-a">Hit Points</td>
+		<td id="table-b">53</td>
+	</tr>
+	<tr>
+		<td id="table-a">Armor Class</td>
+		<td id="table-b">20 (21 when <em>shield</em> is cast)</td>
+	</tr>
+	<tr>
+		<td id="table-a">Ability Score</td>
+		<td id="table-b"> 
+			<strong style="font-size:16px">Str</strong> 10 (+0), <strong >Dex</strong> 16 (+3),
+			<strong style="font-size:16px">Con</strong> 14 (+2) <br>
+			<strong >Int</strong> 12 (+1),
+			<strong style="font-size:16px">Wis</strong> 14 (+2), <strong >Cha</strong> 19 (+4)
+		</td>
+	</tr>
+	<tr>
+		<td id="table-a">Perception</td>
+		<td id="table-b">
+			<table id="nested-table" style="border-bottom:0">
+				<tr style="border-bottom:0">
+					<td style="border-bottom:0"><span id="trained">T</span></td>
+					<td style="border-bottom:0">+9 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td id="table-a">Saves</td>
+		<td id="table-b">
+			<table id="nested-table" style="border-bottom:0">
+				<tr>
+					<td><span id="expert">E</span></td>
+					<td>+11 </td>
+					<td><strong>Fortitude</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				</tr>
+				<tr>
+					<td><span id="trained">T</span></td>
+					<td>+10 </td>
+					<td><strong>Reflex</strong></td>
+				</tr>
+				<tr style="border-bottom:0">
+					<td style="border-bottom:0"><span id="expert">E</span></td>
+					<td style="border-bottom:0">+11 </td>
+					<td style="border-bottom:0"><strong>Will</strong></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td id="table-a">Skill</td>
+		<td id="table-b">
+			<table id="nested-table" style="border-bottom:0">
+				<tr>
+					<td><span id="untrained">U</span></td>
+					<td>+3 </td>
+					<td><strong>Acrobatics</strong></td>
+				</tr>
+				<tr>
+					<td><span id="expert">E</span></td>
+					<td>+10 </td>
+					<td><strong>Arcana</strong></td>
+				</tr>
+				<tr>
+					<td><span id="untrained">U</span></td>
+					<td>+0 </td>
+					<td><strong>Athletics</strong></td>
+				</tr>
+				<tr>
+					<td><span id="trained">T</span></td>
+					<td>+8 </td>
+					<td><strong>Crafting</strong></td>
+				</tr>
+				<tr>
+					<td><span id="expert">E</span></td>
+					<td>+13 </td>
+					<td><strong>Deception</strong></td>
+				</tr>
+				<tr>
+					<td><span id="trained">T</span></td>
+					<td>+11 </td>
+					<td><strong>Diplomacy</strong></td>
+				</tr>
+				<tr>
+					<td><span id="untrained">U</span></td>
+					<td>+4 </td>
+					<td><strong>Intimidation</strong></td>
+				</tr>
+				<tr>
+					<td><span id="trained">T</span></td>
+					<td>+8 </td>
+					<td><strong>Lore (Hills)</strong></td>
+				</tr>
+				<tr>
+					<td><span id="untrained">U</span></td>
+					<td>+2 </td>
+					<td><strong>Medicine</strong></td>
+				</tr>
+				<tr>
+					<td><span id="untrained">U</span></td>
+					<td>+2 </td>
+					<td><strong>Nature</strong></td>
+				</tr>
+				<tr>
+					<td><span id="untrained">U</span></td>
+					<td>+1 </td>
+					<td><strong>Occultism</strong></td>
+				</tr>
+				<tr>
+					<td><span id="untrained">U</span></td>
+					<td>+4 </td>
+					<td><strong>Performance</strong></td>
+				</tr>
+				<tr>
+					<td><span id="untrained">U</span></td>
+					<td>+2 </td>
+					<td><strong>Religion</strong></td>
+				</tr>
+				<tr>
+					<td><span id="trained">T</span></td>
+					<td>+8 </td>
+					<td><strong>Society</strong></td>
+				</tr>
+				<tr>
+					<td><span id="untrained">U</span></td>
+					<td>+3 </td>
+					<td><strong>Stealth</strong></td>
+				</tr>
+				<tr>
+					<td><span id="trained">T</span></td>
+					<td>+9 </td>
+					<td><strong>Survival</strong></td>
+				</tr>
+				<tr style="border-bottom:0">
+					<td style="border-bottom:0"><span id="untrained">U</span></td>
+					<td style="border-bottom:0">+3 </td>
+					<td style="border-bottom:0"><strong>Thievery</strong></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+{% endblock main %}

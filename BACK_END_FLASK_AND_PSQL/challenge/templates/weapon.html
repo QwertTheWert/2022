@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+
+{% block main %}
+
+<img src="{{ url_for('static', filename='seoni.png') }}" id="portrait" style="margin-bottom:50%">
+<table id="outer-table">
+	<tr>
+		<td id="table-a" colspan=2>
+			<em><a href="https://2e.aonprd.com/Equipment.aspx?ID=380" target="_blank">+1 Striking</a> Staff</em>
+		</td>
+	</tr>
+	<tr>
+		<td id="table-a">
+			Melee <img src="{{ url_for('static', filename='1a.png') }}" style="height:12px">
+		</td>
+		<td id="table-b">
+			+8 (two-hand d8), <strong>Damage</strong> 2d4 bludgeoning
+		</td>
+	</tr>
+</table>
+
+<table id="outer-table">
+	<tr>
+		<td id="table-a" colspan=2>
+			<strong>
+			<em><a href="https://2e.aonprd.com/Equipment.aspx?ID=380" target="_blank">+1 Striking</a> <a href="https://2e.aonprd.com/Equipment.aspx?ID=301" target="_blank">Returning</a> Dart</em>
+		</td>
+	</tr>
+	<tr>
+		<td id="table-a">
+			Ranged <img src="{{ url_for('static', filename='1a.png') }}" style="height:12px">
+		</td>
+		<td id="table-b">
+			+8 (agile, range increment 20 feet, thrown), <strong>Damage</strong> 2d4 piercing
+		</td>
+	</tr>
+</table>
+
+{% endblock main %}

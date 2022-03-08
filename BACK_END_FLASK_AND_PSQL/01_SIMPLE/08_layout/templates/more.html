@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block title %}More Info{% endblock title %}
+
+{% block main %}
+<h1>More Information</h1>
+<img src="{{ url_for('static', filename='img.jpg') }}" style="width: 300px;">
+<p>
+	Ipsum aute qui id amet adipisicing in consectetur. Consequat sunt ut cupidatat qui do et nisi reprehenderit laborum magna Lorem. Ut voluptate ea do qui Lorem reprehenderit laboris do elit incididunt ipsum adipisicing. Enim aliqua ex enim deserunt esse. Lorem ad fugiat officia non ipsum ut aute magna qui ad dolor ea Lorem ad. Sunt anim deserunt commodo pariatur. Commodo enim fugiat nostrud est labore.
+	Laboris ullamco excepteur nulla aliqua. Eiusmod ea consequat consequat eiusmod dolor ullamco. Sint magna nulla anim velit exercitation aute veniam minim fugiat nulla non irure. Minim mollit amet qui dolor elit irure.
+	Proident duis ullamco et ullamco aliquip duis et reprehenderit sit consectetur. Ex irure ea amet proident do non. Et ullamco laborum voluptate proident sit nulla nostrud. Aliqua fugiat aliquip dolor qui nostrud duis adipisicing sit minim ad ex irure cillum. Dolor reprehenderit nisi fugiat Lorem exercitation sunt minim et minim. Enim non officia cillum officia incididunt. Amet amet nostrud ullamco non anim.
+</p>
+<a href="{{ url_for('index') }}">Home</a>
+{% endblock main %}

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+	<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Basic List</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap" rel="stylesheet">
+</head>
+<style type="text/css">
+	body {
+		padding: 10px 20%;
+		font: 12pt Helvetica, sans-serif;
+		background-color: #1f1f1f;
+		color: #cfcfcf;
+	}
+
+	#logo {
+		float: left;
+		font-weight: bold;
+		font: 3em 'League Gothic', sans-serif;
+		vertical-align: text-top;
+	}
+
+	#portrait {
+		float: left;
+		border: 1px solid #cfcfcf;
+		width: 200px;
+		margin-right: 10px;
+	}
+
+	#outer-table, #outer-table tr, #outer-table th, #outer-table td {
+		padding: 3px 10px 0px 0;
+		border-collapse: collapse;
+		border-bottom: 1px solid #5e5e5e;
+	}
+
+	#nested-table, #nested-table tr, #nested-table th, #nested-table td {
+		padding: 0 10px 0 10px;
+		border-collapse: collapse;
+		border-bottom: 1px solid #5e5e5e;
+	}
+
+	#nested-table {
+		width: 100%;
+	}
+	#outer-table {
+		margin-bottom: 20px
+	}
+
+	#table-a {
+		font-weight: bold;
+		width: 100px;
+		padding-top: 5px;
+		vertical-align: top;
+	}
+
+	#table-b {
+		padding-top: 5px;
+		text-align: left;
+		font-size: .8em;
+		width: 1000px;
+		line-height: 160%;
+	}
+	
+	#equipment {
+		margin: 0px;
+	}
+
+	#container {
+		margin: 0px;
+		margin-left: -20px;
+		list-style: square;
+	}
+	nav {
+		float: left;
+		width: 100%;
+		border-bottom: 2px solid #cfcfcf;
+	}
+
+	nav ul {
+		list-style-type: none;
+		display: inline;
+		padding: 0px;
+	}
+
+	nav ul li {
+		display: inline;
+		line-height: 1.8em;
+	}
+
+	nav ul li a:link, nav ul li a:visited {
+		font-weight: bold;
+		line-height: 10pt;
+		text-decoration: none;
+		padding: 0px 10px;
+		color: #dedede;
+	}
+
+	nav ul li a:hover {
+		font-weight: bold;
+		line-height: 10pt;
+		text-decoration: none;
+		padding: 0px 10px;
+		color: #ffffff;
+	}
+
+	section {
+		float: left;
+		clear: left;
+		margin: 10px 0;
+	}
+
+	section a{
+		font-weight: bold;
+		text-decoration: none;
+	}
+
+	footer{
+		float: left;
+		width: 100%;
+		font-size: .8em;
+		border-top: 1px solid #cfcfcf;
+	}
+
+	footer a:link, footer a:visited, footer a:hover{
+		color: #4287f5;
+	}
+
+	td a:link, td a:visited, li a:link, li a:visited {
+		color: #dedede;
+	}
+
+	td a:hover, li a:hover {
+		color: #ffffff;
+	}
+
+	#untrained {	
+		padding: 2px 4px;
+		color: white;
+		border-radius: 10%;
+		background-color: #141414;
+	}	
+	
+	#trained {	
+		padding: 2px 4px;
+		color: white;
+		border-radius: 10%;
+		background-color: #17458f;
+	}	
+	
+	#expert {	
+		padding: 2px 4px;
+		color: white;
+		border-radius: 10%;
+		background-color: #4d125e;
+	}	
+	
+	#master {	
+		padding: 2px 4px;
+		color: white;
+		border-radius: 10%;
+		background-color: #8c7612;
+	}	
+	
+	#legendary {	
+		padding: 2px 4px;
+		color: white;
+		border-radius: 10%;
+		background-color: #660c0c;
+	}	
+</style>
+<body>
+	<header>
+		<div id="logo">
+			<img src="{{ url_for('static', filename='pathfinder.png') }}" style="width:200px;">
+
+			Seoni (Iconic Sorcerer)
+		</div>
+		<nav>
+			<ul>
+				<li>
+					<a href="{{ url_for('details') }}">Details</a>
+				</li>
+				<li>
+					<a href="{{ url_for('weapon') }}">Weapon</a>
+				</li>
+				<li>
+					<a href="{{ url_for('equipment') }}">Equipment</a>
+				</li>
+				<li>
+					<a href="{{ url_for('progression') }}">Progression</a>
+				</li>
+				<li>
+					<a href="{{ url_for('spells') }}">Spells</a>
+				</li>
+			</ul>
+		</nav>
+	</header>	
+	<section id="text-body">
+		{% block main %}
+		
+		{% endblock main %}
+	</section>
+	<footer>
+		This is a simplified version of a Pathfinder Second Edition Iconic Character Sheet for this character. The full version can be looked up <a href="https://paizo.com/products/btq01zt5?Community-Use-Package-PF2E-Iconics-Pregenerated-Characters">here</a>.
+	</footer>
+</body>
+
+{% block js %}
+
+
+{% endblock js %}
+
+</html>

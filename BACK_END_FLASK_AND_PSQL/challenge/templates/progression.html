@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+
+{% block main %}
+
+<img src="{{ url_for('static', filename='seoni.png') }}" id="portrait" style="margin-bottom:50%">
+<table id="outer-table">
+	<tr>
+		<td id="table-a">Ancestry Feat/Features</td>
+		<td id="table-b">
+			<ul id="equipment">
+				<li>
+					<a href="https://2e.aonprd.com/Heritages.aspx?ID=28" target="_blank">Skilled (Athletics)</a> (Heritage)
+				</li>
+				<li>
+					<a href="https://2e.aonprd.com/Feats.aspx?ID=66" target="_blank">Adapted Cantrip</a> (1st)
+				</li>
+				<li>
+					<a href="https://2e.aonprd.com/Feats.aspx?ID=73" target="_blank">Adapted Adept</a> (5th)
+				</li>			
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<td id="table-a">Class Feat/Features</td>
+		<td id="table-b">
+			<ul id="equipment">
+				<li>
+					<a href="https://2e.aonprd.com/Bloodlines.aspx?ID=9" target="_blank">Imperial</a> (Bloodline)
+				</li>
+				<li>
+					<a href="https://2e.aonprd.com/Feats.aspx?ID=66" target="_blank">Counterspell</a> (2nd)
+				</li>
+				<li>
+					<a href="https://2e.aonprd.com/Feats.aspx?ID=73" target="_blank">Bespell Weapon</a> (4th)
+				</li>			
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<td id="table-a">Skill Feats</td>
+		<td id="table-b">
+			<ul id="equipment">
+				<li>
+					<a href="https://2e.aonprd.com/Feats.aspx?ID=756" target="_blank">Assurance (Survival)</a> (2nd)
+				</li>
+				<li>
+					<a href="https://2e.aonprd.com/Feats.aspx?ID=811" target="_blank">Lie to Me</a> (4th)
+				</li>		
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<td id="table-a">General Feats</td>
+		<td id="table-b">
+			<ul id="equipment">
+				<li>
+					<a href="https://2e.aonprd.com/Feats.aspx?ID=855" target="_blank">Toughness</a> (3rd)
+				</li>	
+			</ul>
+		</td>
+	</tr>
+</table>
+
+{% endblock main %}

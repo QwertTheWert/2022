@@ -1,0 +1,86 @@
+{% extends 'layout.html' %}
+
+
+{% block main %}
+
+<img src="{{ url_for('static', filename='seoni.png') }}" id="portrait" style="margin-bottom:50%">
+<table id="outer-table">
+	<tr>
+		<td id="table-a">Weapon</td>
+		<td id="table-b">
+			<ul id="equipment">
+				<li>
+					<em><a href="https://2e.aonprd.com/Equipment.aspx?ID=380" target="_blank">+1 striking</a> staff</em>
+				</li>
+				<li>
+					<em><a href="https://2e.aonprd.com/Equipment.aspx?ID=380" target="_blank">+1 striking</a> <a href="https://2e.aonprd.com/Equipment.aspx?ID=301" target="_blank">returning</a> dart</em>
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<td id="table-a">Armor</td>
+		<td id="table-b">
+			<ul id="equipment">
+				<li>
+					Explorer’s clothing
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<td id="table-a">Equipment</td>
+		<td id="table-b">
+			<ul id="equipment">
+				<li>
+					Backpack
+					<ul id="container">
+						<li>
+							Bedroll
+						</li>
+						<li>
+							Candle (10) 
+						</li>
+						<li>
+							Flint and steel
+						</li>
+						<li>
+							Rations (3 weeks)
+						</li>
+						<li>
+							Scroll case
+						</li>
+						<li>
+							Waterskin
+						</li>
+						<li>
+							Writing set
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<td id="table-a">Consumable</td>
+		<td id="table-b">
+			<ul id="equipment">
+				<li>
+					<a href="https://2e.aonprd.com/Equipment.aspx?ID=91" target="_blank">Lesser elixir of life</a>
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<td id="table-a">Treasure</td>
+		<td id="table-b">
+			<ul id="equipment">
+				<li>12 gp</li>
+				<li>3 sp</li>
+				<li>18 cp</li>
+			</ul>
+		</td>
+	</tr>	
+</table>
+
+{% endblock main %}
