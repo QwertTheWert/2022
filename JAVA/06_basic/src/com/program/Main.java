@@ -14,5 +14,23 @@ public class Main {
 		} else {
 			System.out.println("No Arguments Here!");
 		}
+
+
+		int number; //declaration
+		number = 40; //asignment
+		int numberAgain = 100;
+		System.out.println(numberAgain + " " + number);
+		// INTEGER, SHORT, LONG, BYTE
+		// FLOAT, DOUBLE
+		// CHAR, BOOL
+
+		System.out.println(Integer.BYTES); // 4 BYTES = 32 BIT : +- 2 ^ 31 -1
+		System.out.println(Integer.MAX_VALUE + 1);
+		System.out.println(Short.MAX_VALUE);
+		System.out.println(Long.MAX_VALUE);
+		System.out.println(Byte.MAX_VALUE);
+		System.out.println(Float.MAX_VALUE);
+		System.out.println(Double.MAX_VALUE);
+		System.out.println(Character.MAX_VALUE);
 	}
 }
