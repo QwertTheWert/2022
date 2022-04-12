@@ -1,39 +1,32 @@
-setting_up_board = lambda n : ["X" * n for i in range(n)]
+import os
+import random
+
+setting_up_board = lambda n : [list("X" * n) for i in range(n)]
+
+setting_up_ship_loaction = lambda rows : [random.randint(0, rows-1), random.randint(0, rows-1)]
 
 def printing_board(board):
+	os.system("clear")
 	for row in board:
 		print(" ".join(row))
+
+
+def check_user_input():
+	user_input = list(map(int, input(">> Coordinates : ").split()))
+	
+	if user_input == my_ship:
+		print("You Win")
+		return True
+	
+	my_board[user_input[0]][user_input[1]] = "0"
+	return False
 
 win = False
 rows = 5
 my_board = setting_up_board(rows)
+my_ship = setting_up_ship_loaction(rows)
 
 while not win:
 	printing_board(my_board)
-	input()
+	win = check_user_input()
 
-# lists = [[0, 1, 2], [3, 4, 5]]
-# for list in lists:
-# 	for item in list:
-# 		print(item, end=" ")
-# 	print()
-
-# # texts = []
-# # text = "X" * 3
-
-# # for i in range(3):
-# # 	texts.append(text)
-
-# texts = ["X"  *3 for i in range(3) ]
-
-# # print(texts)
-# # texts = ["XXX", "XXX", "XXX"]
-# """
-# for text in texts:
-# 	for char in text:
-# 		print(char, end=" ")
-# 	print()
-# """
-
-# for text in texts:
-# 	print(" ".join(text))
