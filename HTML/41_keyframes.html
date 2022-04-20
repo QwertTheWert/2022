@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Transform</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<style>
+	.canvas {
+		width: 10rem;
+		height: 10rem;
+		margin: 3rem auto;
+		animation: myAnimation 1s infinite;
+		/* animation-direction: alternate-reverse; */
+		animation-timing-function: linear;
+	}
+
+	@keyframes myAnimation {
+		from {
+			/* transform: rotate(0.5); */
+			background: blue;
+			/* background: red; */
+		}
+
+		to {
+			transform: rotate(180deg);
+			background: blue;
+
+		}
+	}
+</style>
+<script type="text/javascript">
+
+</script>
+<body>
+	<div class="canvas">
+
+	</div>
+</body>
+</html>

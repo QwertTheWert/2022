@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Bouncy Ball</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<style>
+	.scroll-left {
+		height: 50px;	
+		overflow: hidden;
+		position: relative;
+		font-size: 20px;
+	}
+	.scroll-left p {
+		color: black;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		line-height: 50px;
+		text-align: center;
+		transform:translateX(100%);
+		animation: scroll-left 15s linear infinite;
+	}
+	
+	@keyframes scroll-left {
+		0% {transform: translateX(100%)}
+		100% {transform: translateX(-100%)}
+	}
+	</style>
+	
+	<div class="scroll-left">
+		<p>Eiusmod id aute excepteur laborum aliquip fugiat commodo mollit. Laborum exercitation occaecat reprehenderit occaecat dolor ea sunt. Do deserunt exercitation incididunt cillum cupidatat cillum. Consectetur exercitation ex eu laborum incididunt ullamco et consectetur tempor. Consequat pariatur duis labore non occaecat labore culpa. Aliquip exercitation enim ex est.</p>
+	</div>
+	
+</html>

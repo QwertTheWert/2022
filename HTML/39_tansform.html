@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Transform</title>
+</head>
+<style>
+	.container {
+		display: flex;
+		justify-content: space-evenly;
+		flex-wrap: wrap;
+	}
+
+	.item {
+		width: 10rem;
+		height: 12rem;
+		border: solid 1px black;
+		background: linear-gradient(#f5ea70, white);
+		margin-bottom: 10px;
+		box-sizing: border-box;
+		border-radius: 1rem;
+	}
+
+	.two {
+		transition-duration: 1s;
+		transform-origin: left bottom;
+	}
+	.two:hover {
+		transform: rotate(30deg);
+	}
+
+	.three {
+		transition-duration: 1s;
+	}
+
+	.three:hover {
+		transform: scale(1.5);
+	}
+	
+	.four {
+		transition-duration: 1s;
+	}
+
+	.four:hover {
+		transform: translate(30px, 0);
+	}
+
+	.five {
+		transition-duration: 1s;
+		transform-origin: left bottom;
+	}
+	.five:hover {
+		transform: rotate(30deg) scale(1.5) translate(0, 30px);
+	}
+</style>
+<body>
+	<div class="container">
+		<div class="item one">
+
+		</div>
+		<div class="item two">
+
+		</div>
+		<div class="item three">
+
+		</div>
+		<div class="item four">
+
+		</div>
+		<div class="item five">
+
+		</div>
+	</div>
+</body>
+</html>
