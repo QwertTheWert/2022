@@ -1,10 +1,16 @@
-from distutils.util import byte_compile
-from flask import render_template, url_for, redirect, flash
-from project.forms import RegistrationForm, LoginForm
+from random import random
+from flask import render_template, request, url_for, redirect, flash, request
+
+from flask_login import login_user, current_user, logout_user, login_required
+
+from project.forms import RegistrationForm, LoginForm, UpdateProfileForm
 from project.models import User, Tweet
 
-
 from project import app, bcrypt, db
+
+import secrets
+import os
+from PIL import Image
 
 tweets = [
 	{
@@ -37,11 +43,59 @@ def register():
 	return render_template('register.html', title='Register', form=form)
 
 
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
 	form = LoginForm()
+	if form.validate_on_submit():
+		user = User.query.filter_by(email=form.email.data).first()
+
+		if user and bcrypt.check_password_hash(user.password, form.password.data):
+			login_user(user, remember=form.remember.data)
+			return redirect(url_for("home"))
 	return render_template('login.html', title='Login', form=form)
+
+@app.route("/logout")
+def logout():
+	logout_user()
+	return redirect(url_for("home"))
 
 @app.route("/about")
 def about():
 	return render_template('about.html', title='About Us')
+
+def save_data(form_picture):
+	#file name and path
+	random_file_name = secrets.token_hex(16)
+	f_name, f_ext = os.path.splitext(form_picture.filename)
+	picture_file_name = random_file_name + f_ext
+	picture_file_path = os.path.join(app.root_path, 'static/profile_pictures', picture_file_name)
+
+	#file compress processing
+	image = Image.open(form_picture)
+	ratio = image.height / 125
+	output_size = (125, int(image.width/ratio))
+	image.thumbnail(output_size)
+	image.save(picture_file_path)
+
+	return picture_file_name
+
+@app.route("/profile", methods=["GET", "POST"])
+@login_required
+def profile():
+	form = UpdateProfileForm()
+	if form.validate_on_submit():
+		
+		if form.picture.data:
+			current_user.image_file = save_data(form.picture.data)
+		current_user.username = form.username.data
+		db.session.commit()
+		flash("Yout acount has been updated!", "success")
+		return redirect(url_for("profile"))
+	elif request.method == 'GET':
+		form.username.data = current_user.username
+
+	image_file = url_for("static", filename="profile_pictures/"+current_user.image_file)
+	return render_template('profile.html', title='Profile', image_file=image_file, form=form)
+
+
+
