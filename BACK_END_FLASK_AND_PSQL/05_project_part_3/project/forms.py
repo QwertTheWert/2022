@@ -16,7 +16,6 @@ class RegistrationForm(FlaskForm):
 	submit = SubmitField('Sign Up')
 
 	def validate_username(self, username):
-
 		user = User.query.filter_by(username=username.data).first()
 		if user:
 			raise ValidationError("That's username is taken. Please choose a different one.")
@@ -39,6 +38,8 @@ class LoginForm(FlaskForm):
 
 class UpdateProfileForm(FlaskForm):
 	username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
+	current_password = PasswordField('Current Password')
+	new_password = PasswordField('New Password')
 	picture = FileField('Update Profile Picture', validators=[FileAllowed(['jpg', 'png', 'jpeg'])])
 	submit = SubmitField('Update')
 
