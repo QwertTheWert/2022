@@ -1,29 +1,30 @@
-from flask import render_template, url_for, redirect, flash, request
+from flask import render_template, url_for, redirect, flash, request, abort, jsonify
 
-from project import app, db #,bcrypt
+from project import app, db#, bcrypt
 from project.models import User, Tweet
-from project.forms import RegistrationForm, LoginForm, UpdateProfileForm
+from project.forms import RegistrationForm, LoginForm, UpdateProfileForm, TweetForm
 
 from flask_login import login_user, current_user, logout_user, login_required
 
-tweets = [
-	{
-		'author' : 'Budi Doremi',
-		'content' : 'This is my first tweet',
-		'date_posted' : 'May 10, 2022'
-	},
-	{
-		'author' : 'Alex Chandra',
-		'content' : 'Hello World',
-		'date_posted' : 'May 11, 2022'
-	}
-]
 
-
-@app.route("/") # 127.0.0.1:8000
-@app.route("/home") # 127.0.0.1:8000/home
+@app.route("/", methods=['GET', 'POST']) # 127.0.0.1:8000
+@app.route("/home", methods=['GET', 'POST']) # 127.0.0.1:8000/home
 def home():
-	return render_template('home.html', tweets=tweets)
+	form = TweetForm()
+
+	if form.validate_on_submit() and current_user.is_authenticated: 
+		tweet = Tweet(content=form.content.data, user_id = current_user.id)
+		db.session.add(tweet)
+		db.session.commit()
+		flash("Your tweet has been created!", "success")
+		return redirect(url_for("home"))
+
+	# tweets = Tweet.query.order_by(Tweet.date_posted.desc()).all()
+	tweets = Tweet.query.order_by(Tweet.date_posted.desc()).paginate(per_page=5)
+
+	last_page = list(tweets.iter_pages())[-1]
+
+	return render_template('home.html', tweets=tweets, form=form, last_page=last_page)
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
@@ -99,7 +100,48 @@ def profile():
 def about():
 	return render_template('about.html', title='About Us')
 
+@app.route("/tweet/<int:tweet_id>", methods=["GET", "POST"])
+def tweet(tweet_id):
+	tweet = Tweet.query.get_or_404(tweet_id)
 
+	if tweet.author != current_user:
+		abort(403)
 
+	form = TweetForm()
 
+	if form.validate_on_submit():
+		tweet.content = form.content.data
+		db.session.commit()
+		flash("Your tweet has been updated!", "success")
+		return redirect(url_for("home"))
 
+	form.content.data = tweet.content
+	return render_template("tweet.html", title="Tweet", form=form, tweet=tweet)
+
+@app.errorhandler(404)
+def error_404(error):
+	return render_template("errors/404.html"), 404
+
+@app.errorhandler(403)
+def error_403(error):
+	return render_template("errors/403.html"), 403
+
+@app.errorhandler(500)
+def error_500(error):
+	return render_template("errors/500.html"), 500
+
+#API ROUTES
+@app.route("/get_user_api/<string:username>")
+def get_user_api(username):
+	user = User.query.filter_by(username=username).first()
+	if user is None:
+		return jsonify({
+			'success': False
+		})
+	
+	return jsonify({
+		"id": user.id,
+		"username": user.username,
+		"email": user.email,
+		"image_file": user.image_file
+	})

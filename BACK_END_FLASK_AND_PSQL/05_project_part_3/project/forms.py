@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
 
-from wtforms import StringField, PasswordField, SubmitField, BooleanField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 
 from project.models import User
@@ -48,5 +48,7 @@ class UpdateProfileForm(FlaskForm):
 			if user:
 				raise ValidationError("That's username is taken. Please choose a different one.")
 
-
+class TweetForm(FlaskForm):
+	content = TextAreaField('Tweet', validators=[DataRequired()])
+	submit = SubmitField('Tweet')
 
